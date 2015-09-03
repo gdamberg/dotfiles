@@ -5,7 +5,9 @@
     ~/.aliases: aliases
     ~/.bashrc: bashrc
     ~/.functions: functions
-    ~/.initrc: initrc
-
+    ~/.inputrc: inputrc
+    ~/.exports: exports
+    ~/.prompt: prompt
+    
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

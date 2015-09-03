@@ -15,4 +15,4 @@ set mark-symlinked-directories on
 # the cursor is on the "z", pressing Tab will not autocomplete it to "cd
 # ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
 # Readline used by Bash 4.)
-set skip-completed-text onsubl inp	
+set skip-completed-text on
