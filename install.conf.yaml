@@ -8,6 +8,7 @@
     ~/.inputrc: inputrc
     ~/.exports: exports
     ~/.prompt: prompt
-    
+    ~/.hgrc: hgrc
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

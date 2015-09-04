@@ -1,0 +1,6 @@
+[extensions]
+color =
+prompt = ~/.dotfiles/tools/hg-prompt/prompt.py
+
+# Allow local customizations
+%include ~/.hgrc_local
