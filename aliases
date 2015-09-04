@@ -10,12 +10,21 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias la="ls -la"		# List in long format, include dotfiles
-alias ld="ls -ld */"	# List in long format, only directories
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
 
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias cd..="cd .."
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
