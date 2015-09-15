@@ -39,11 +39,6 @@ function s() {
   fi;
 }
 
-# hg_prompt for use in the prompt
-hg_prompt() {
-    hg prompt " {branch}{ {status}}{{incoming} ⚑}{{outgoing} ➠}" 2> /dev/null
-}
-
 # Quickly navigate your filesystem from the command-line
 # From: http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
@@ -74,16 +69,7 @@ complete -F _completemarks jump unmark
 # Colorize Maven Output
 alias maven="command mvn"
 function color_maven() {
-    local BLUE="[0;34m"
-    local RED="[0;31m"
-    local LIGHT_RED="[1;31m"
-    local LIGHT_GRAY="[0;37m"
-    local LIGHT_GREEN="[1;32m"
-    local LIGHT_BLUE="[1;34m"
-    local LIGHT_CYAN="[1;36m"
-    local YELLOW="[1;33m"
-    local WHITE="[1;37m"
-    local NO_COLOUR="[0m"
+
     maven "$@" | sed \
         -e "s/Tests run: \([^,]*\), Failures: \([^,]*\), Errors: \([^,]*\), Skipped: \([^,]*\)/${LIGHT_GREEN}Tests run: \1$NO_COLOUR, Failures: $RED\2$NO_COLOUR, Errors: $YELLOW\3$NO_COLOUR, Skipped: $LIGHT_BLUE\4$NO_COLOUR/g" \
         -e "s/\(\[\{0,1\}WARN\(ING\)\{0,1\}\]\{0,1\}.*\)/$YELLOW\1$NO_COLOUR/g" \
@@ -95,3 +81,22 @@ function color_maven() {
     return $PIPESTATUS
 }
 alias mvn=color_maven
+
+
+function colors() {
+  echo -e $BLACK "black" $NO_COLOUR
+  echo -e $RED  "red" $NO_COLOUR
+  echo -e $GREEN "green" $NO_COLOUR
+  echo -e $YELLOW "yellow" $NO_COLOUR
+  echo -e $BLUE "blue" $NO_COLOUR
+  echo -e $PURPLE "purple" $NO_COLOUR
+  echo -e $CYAN "cyan" $NO_COLOUR
+  echo -e $WHITE "white" $NO_COLOUR
+  echo -e $LIGHT_RED "light red" $NO_COLOUR
+  echo -e $LIGHT_GRAY "light gray" $NO_COLOUR
+  echo -e $LIGHT_GREEN "light green" $NO_COLOUR
+  echo -e $LIGHT_BLUE "light blue" $NO_COLOUR
+  echo -e $LIGHT_CYAN "light cyan" $NO_COLOUR
+  echo -e $REVERSE "reverse" $NO_COLOUR
+
+}

@@ -29,6 +29,23 @@ if [ -f ~/.prompt ]; then
 fi
 
 
+# COLORS
+BLACK="[0;30m"
+RED="[0;31m"
+GREEN="[0;32m"
+YELLOW="[1;33m"
+BLUE="[0;34m"
+PURPLE="[0;35m"
+CYAN="[0;36m"
+WHITE="[1;37m"
+LIGHT_RED="[1;31m"
+LIGHT_GRAY="[0;37m"
+LIGHT_GREEN="[1;32m"
+LIGHT_BLUE="[1;34m"
+LIGHT_CYAN="[1;36m"
+NO_COLOUR="[0m"
+REVERSE="[7m"
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
