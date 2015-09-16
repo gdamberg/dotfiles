@@ -5,31 +5,33 @@ fi
 
 hg_prompt() {
 
-    local hgstatus=$(hg prompt {status} 2> /dev/null)
-
-    case "$hgstatus" in
-        "!" ) hgstatus=$YELLOW;;
-        "?" ) hgstatus=$LIGHT_RED;;
-        * ) hgstatus=$LIGHT_GREEN;;
-    esac
-
-    local hgremote=$(hg prompt "{i{incoming}}{o{outgoing}}" 2> /dev/null)
-    case "$hgremote" in
-        "io" ) hgremote=" ⇅";;
-        "i" ) hgremote=" ↓";;
-        "o" ) hgremote=" ↑";;
-        * ) hgremote="";;
-    esac
-
     local hgrepo=$(hg prompt "{branch}" 2> /dev/null)
+    if [ "$hgrepo" ]; then
+        local hgstatus=$(hg prompt {status} 2> /dev/null)
 
-    echo "$hgstatus$hgrepo$hgremote$NO_COLOUR"
+        case "$hgstatus" in
+            "!" ) hgstatus=$LIGHT_YELLOW;;
+            "?" ) hgstatus=$LIGHT_RED;;
+            * ) hgstatus=$LIGHT_GREEN;;
+        esac
+
+        local hgremote=$(hg prompt "{i{incoming}}{o{outgoing}}" 2> /dev/null)
+        case "$hgremote" in
+            "io" ) hgremote="⇅";;
+            "i" ) hgremote="↓";;
+            "o" ) hgremote="↑";;
+            * ) hgremote="";;
+        esac
+
+
+        printf "\001$hgstatus\002$hgrepo $hgremote"
+    fi
 
 }
 
 hg='$(hg_prompt)'
 
-PS1=' $LIGHT_BLUE\w $(hg_prompt) $LIGHT_BLUE»  $NO_COLOUR'
+PS1=' \[$LIGHT_BLUE\]\w \[$NO_COLOUR\]$(hg_prompt)\[$NO_COLOUR\] \[$LIGHT_BLUE\]»  \[$NO_COLOUR\]'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in

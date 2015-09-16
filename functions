@@ -93,6 +93,7 @@ function colors() {
   echo -e $CYAN "cyan" $NO_COLOUR
   echo -e $WHITE "white" $NO_COLOUR
   echo -e $LIGHT_RED "light red" $NO_COLOUR
+  echo -e $LIGHT_YELLOW "light yellow" $NO_COLOUR
   echo -e $LIGHT_GRAY "light gray" $NO_COLOUR
   echo -e $LIGHT_GREEN "light green" $NO_COLOUR
   echo -e $LIGHT_BLUE "light blue" $NO_COLOUR
