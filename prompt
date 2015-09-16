@@ -24,7 +24,7 @@ hg_prompt() {
         esac
 
 
-        printf "\001$hgstatus\002$hgrepo $hgremote"
+        printf "\001$hgstatus\002hg:$hgrepo $hgremote"
     fi
 
 }
