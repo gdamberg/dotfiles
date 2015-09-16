@@ -90,3 +90,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# ADD todo.txt to autocomplete
+source ~/.dotfiles/tools/todo.txt-cli/todo_completion

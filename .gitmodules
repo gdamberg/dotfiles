@@ -1,3 +1,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "tools/todo.txt-cli"]
+	path = tools/todo.txt-cli
+	url = https://github.com/ginatrapani/todo.txt-cli

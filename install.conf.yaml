@@ -9,6 +9,9 @@
     ~/.exports: exports
     ~/.prompt: prompt
     ~/.hgrc: hgrc
+    ~/.todo.actions.d: tools/todo.txt-addons
+    ~/.todo.cfg: todo.cfg
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - mkdir -p ~/.todo
