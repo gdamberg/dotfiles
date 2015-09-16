@@ -10,9 +10,9 @@ hg_prompt() {
         local hgstatus=$(hg prompt {status} 2> /dev/null)
 
         case "$hgstatus" in
-            "!" ) hgstatus=$LIGHT_YELLOW;;
-            "?" ) hgstatus=$LIGHT_RED;;
-            * ) hgstatus=$LIGHT_GREEN;;
+            "!" ) hgstatus=$YELLOW;;
+            "?" ) hgstatus=$RED;;
+            * ) hgstatus=$GREEN;;
         esac
 
         local hgremote=$(hg prompt "{i{incoming}}{o{outgoing}}" 2> /dev/null)
@@ -28,8 +28,6 @@ hg_prompt() {
     fi
 
 }
-
-hg='$(hg_prompt)'
 
 PS1=' \[$LIGHT_BLUE\]\w \[$NO_COLOUR\]$(hg_prompt)\[$NO_COLOUR\] \[$LIGHT_BLUE\]»  \[$NO_COLOUR\]'
 
