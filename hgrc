@@ -1,5 +1,6 @@
 [extensions]
 color =
+shelve=
 prompt = ~/.dotfiles/tools/hg-prompt/prompt.py
 
 # Allow local customizations
