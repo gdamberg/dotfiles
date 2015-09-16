@@ -5,7 +5,7 @@ fi
 
 hg_prompt() {
 
-    local hgrepo=$(hg prompt "{branch}" 2> /dev/null)
+    local hgrepo=$(hg prompt "{branch}{[{bookmark}]}" 2> /dev/null)
     if [ "$hgrepo" ]; then
         local hgstatus=$(hg prompt {status} 2> /dev/null)
 
