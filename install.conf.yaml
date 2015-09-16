@@ -2,15 +2,12 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.aliases: aliases
     ~/.bashrc: bashrc
-    ~/.functions: functions
     ~/.inputrc: inputrc
-    ~/.exports: exports
-    ~/.prompt: prompt
     ~/.hgrc: hgrc
     ~/.todo.actions.d: tools/todo.txt-addons
     ~/.todo.cfg: todo.cfg
+    ~/.gitconfig: gitconfig
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

@@ -1,3 +1,22 @@
+# COLORS
+BLACK="$(tput setaf 0)"
+RED="$(tput setaf 1)"
+GREEN="$(tput setaf 2)"
+YELLOW="$(tput setaf 3)"
+BLUE="$(tput setaf 4)"
+PURPLE="$(tput setaf 5)"
+CYAN="$(tput setaf 6)"
+WHITE="$(tput setaf 7)$(tput bold)"
+LIGHT_RED="$(tput setaf 1)$(tput bold)"
+LIGHT_YELLOW="$(tput setaf 3)$(tput bold)"
+LIGHT_GRAY="$(tput setaf 7)"
+LIGHT_GREEN="$(tput setaf 2)$(tput bold)"
+LIGHT_BLUE="$(tput setaf 4)$(tput bold)"
+LIGHT_CYAN="$(tput setaf 6)$(tput bold)"
+NO_COLOUR="$(tput sgr0)"
+REVERSE="$(tput rev)"
+
+
 # Create a new directory and enter it
 function mkd() {
   mkdir -p "$@" && cd "$@"

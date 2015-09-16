@@ -1,1 +1,3 @@
 tools/hg-prompt/.hg/prompt
+*.pyc
+.hg
