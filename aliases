@@ -31,5 +31,5 @@ alias t="terminator 2> /dev/null &"
 alias c=clear
 
 # todo.txt
-alias todo='.dotfiles/tools/todo.txt-cli/todo.sh -d ~/.todo.cfg -a -P'
+alias todo='~/.dotfiles/tools/todo.txt-cli/todo.sh -d ~/.todo.cfg -a -P'
 alias td=todo
