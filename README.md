@@ -7,3 +7,5 @@ you can make local customizations by editing these files which will get sourced 
 + bash: ~/.bashrc_local
 + git: ~/.gitconfig_local
 + hg:  ~/.hgrc_local
++ 
+Released under The MIT License (MIT). See LICENSE
