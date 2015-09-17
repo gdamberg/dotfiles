@@ -35,7 +35,7 @@ GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_DESCRIBE_STYLE="branch"
 GIT_PS1_SHOWUPSTREAM="auto git"
 
-PS1=' \[$LIGHT_BLUE\]\w \[$NO_COLOUR\]$(hg_prompt)\[$YELLOW\]$(__git_ps1 " (%s)")\[$NO_COLOUR\] \[$LIGHT_BLUE\]»  \[$NO_COLOUR\]\[$CYAN\]'
+PS1=' \[$LIGHT_BLUE\]\w \[$NO_COLOUR\]$(hg_prompt)\[$YELLOW\]$(__git_ps1)\[$NO_COLOUR\] \[$LIGHT_BLUE\]»  \[$NO_COLOUR\]\[$CYAN\]'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
