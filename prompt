@@ -27,15 +27,57 @@ hg_prompt() {
 }
 
 # git prompt
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-# Explicitly unset color (default anyhow). Use 1 to set it.
-GIT_PS1_SHOWCOLORHINTS=1
-GIT_PS1_DESCRIBE_STYLE="branch"
-GIT_PS1_SHOWUPSTREAM="auto git"
+git_prompt() {
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    # Explicitly unset color (default anyhow). Use 1 to set it.
+    GIT_PS1_SHOWCOLORHINTS=1
+    GIT_PS1_DESCRIBE_STYLE="branch"
+    GIT_PS1_SHOWUPSTREAM="auto git"
 
-PS1=' \[$LIGHT_BLUE\]\w \[$NO_COLOUR\]$(hg_prompt)\[$YELLOW\]$(__git_ps1)\[$NO_COLOUR\] \[$LIGHT_BLUE\]»  \[$NO_COLOUR\]\[$CYAN\]'
+    local git=$(__git_ps1 "%s")
+
+    if [ "$git" ]; then
+        local gitstatus=$GREEN
+        if [[ $git == *"+"* ]]; then
+            gitstatus=$YELLOW
+        fi
+
+        if [[ $git == *"%"* ]] || [[ $git == *"*"* ]]; then
+            gitstatus=$RED
+        fi
+
+        local gitremote=""
+        if [[ $git == *">"* ]]; then
+           gitremote="↑"
+        fi
+
+        if [[ $git == *"<"* ]]; then
+            gitremote="↓"
+        fi
+
+        if [[ $git == *"<>"* ]]; then
+            gitremote="⇅"
+        fi
+        local gitstash=""
+        if [[ $git == *"$"* ]]; then
+            gitstash="★"
+        fi
+
+        IFS=' |=|<|>' read -ra array <<< "$git"
+        local gitbranch=${array[0]}
+
+         printf "\001$gitstatus\002git:$gitbranch $gitremote$gitstash"
+
+    fi
+
+
+
+}
+
+
+PS1=' \[$LIGHT_BLUE\]\w \[$NO_COLOUR\]$(hg_prompt)$(git_prompt)\[$NO_COLOUR\] \[$LIGHT_BLUE\]»  \[$NO_COLOUR\]\[$CYAN\]'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
