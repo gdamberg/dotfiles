@@ -1,8 +1,5 @@
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
 
+# hg prompt
 hg_prompt() {
 
     local hgrepo=$(hg prompt "{branch}{[{bookmark}]}" 2> /dev/null)
@@ -28,6 +25,15 @@ hg_prompt() {
     fi
 
 }
+
+# git prompt
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+# Explicitly unset color (default anyhow). Use 1 to set it.
+GIT_PS1_SHOWCOLORHINTS=1
+GIT_PS1_DESCRIBE_STYLE="branch"
+GIT_PS1_SHOWUPSTREAM="auto git"
 
 PS1=' \[$LIGHT_BLUE\]\w \[$NO_COLOUR\]$(hg_prompt)\[$YELLOW\]$(__git_ps1 " (%s)")\[$NO_COLOUR\] \[$LIGHT_BLUE\]»  \[$NO_COLOUR\]\[$CYAN\]'
 
