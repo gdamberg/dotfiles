@@ -1,5 +1,9 @@
 EXIT=$?
 # hg prompt
+
+DIRTY="\001$RED\002"
+READY="\001$YELLOW\002"
+CLEAN="\001$CYAN\002"
 hg_prompt() {
 
     local hgrepo=$(hg prompt "{branch}{[{bookmark}]}" 2> /dev/null)
@@ -7,9 +11,9 @@ hg_prompt() {
         local hgstatus=$(hg prompt {status} 2> /dev/null)
 
         case "$hgstatus" in
-            "!" ) hgstatus=$YELLOW;;
-            "?" ) hgstatus=$RED;;
-            * ) hgstatus=$GREEN;;
+            "!" ) hgstatus=$READY;;
+            "?" ) hgstatus=$DIRTY;;
+            * ) hgstatus=$CLEAN;;
         esac
 
         local hgremote=$(hg prompt "{i{incoming}}{o{outgoing}}" 2> /dev/null)
@@ -21,7 +25,7 @@ hg_prompt() {
         esac
 
 
-        printf "\001$hgstatus\002hg:$hgrepo $hgremote"
+        printf "hg:${hgstatus}$hgrepo $hgremote"
     fi
 
 }
@@ -39,13 +43,13 @@ git_prompt() {
     local git=$(__git_ps1 "%s")
 
     if [ "$git" ]; then
-        local gitstatus=$GREEN
+        local gitstatus=$CLEAN
         if [[ $git == *"+"* ]]; then
-            gitstatus=$YELLOW
+            gitstatus=$READY
         fi
 
         if [[ $git == *"%"* ]] || [[ $git == *"*"* ]]; then
-            gitstatus=$RED
+            gitstatus=$DIRTY
         fi
 
         local gitremote=""
@@ -68,7 +72,7 @@ git_prompt() {
         IFS=' |=|<|>' read -ra array <<< "$git"
         local gitbranch=${array[0]}
 
-         printf "\001$gitstatus\002git:$gitbranch $gitremote$gitstash"
+         printf "git:${gitstatus}$gitbranch $gitremote$gitstash"
 
     fi
 }
