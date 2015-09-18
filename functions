@@ -1,22 +1,20 @@
-# COLORS
-BLACK="$(tput setaf 0)"
-RED="$(tput setaf 1)"
-GREEN="$(tput setaf 2)"
-YELLOW="$(tput setaf 3)"
-BLUE="$(tput setaf 4)"
-PURPLE="$(tput setaf 5)"
-CYAN="$(tput setaf 6)"
-WHITE="$(tput setaf 7)$(tput bold)"
-LIGHT_RED="$(tput setaf 1)$(tput bold)"
-LIGHT_YELLOW="$(tput setaf 3)$(tput bold)"
-LIGHT_GRAY="$(tput setaf 7)"
-LIGHT_GREEN="$(tput setaf 2)$(tput bold)"
-LIGHT_BLUE="$(tput setaf 4)$(tput bold)"
-LIGHT_CYAN="$(tput setaf 6)$(tput bold)"
-LIGHT_PURPLE="$(tput setaf 5)$(tput bold)"
-NO_COLOUR="$(tput sgr0)"
-REVERSE="$(tput rev)"
+# COLORS (only do this in interactive mode)
+if [[ $- == *i* ]]; then
+  BLACK="$(tput setaf 0)"
+  RED="$(tput setaf 1)"
+  GREEN="$(tput setaf 2)"
+  YELLOW="$(tput setaf 3)"
+  BLUE="$(tput setaf 4)"
+  PURPLE="$(tput setaf 5)"
+  CYAN="$(tput setaf 6)"
+  WHITE="$(tput setaf 7)$(tput bold)"
+  GRAY="$(tput setaf 7)"
 
+  NO_COLOUR="$(tput sgr0)"
+  REVERSE="$(tput rev)"
+  BOLD="$(tput bold)"
+  UNDERLINE="$(tput smul)"
+fi
 
 # Create a new directory and enter it
 function mkd() {
@@ -82,16 +80,16 @@ alias maven="command mvn"
 function color_maven() {
 
     maven "$@" | sed \
-        -e "s/Tests run: \([^,]*\), Failures: \([^,]*\), Errors: \([^,]*\), Skipped: \([^,]*\)/${LIGHT_GREEN}Tests run: \1$NO_COLOUR, Failures: $LIGHT_RED\2$NO_COLOUR, Errors: $LIGHT_YELLOW\3$NO_COLOUR, Skipped: $PURPLE\4$NO_COLOUR/g" \
-        -e "s/\(\[\{0,1\}WARN\(ING\)\{0,1\}\]\{0,1\}.*\)/$LIGHT_YELLOW\1$NO_COLOUR/g" \
+        -e "s/Tests run: \([^,]*\), Failures: \([^,]*\), Errors: \([^,]*\), Skipped: \([^,]*\)/${GREEN}Tests run: \1$NO_COLOUR, Failures: $BOLD$RED\2$NO_COLOUR, Errors: $BOLD$YELLOW\3$NO_COLOUR, Skipped: $PURPLE\4$NO_COLOUR/g" \
+        -e "s/\(\[\{0,1\}WARN\(ING\)\{0,1\}\]\{0,1\}.*\)/$BOLD$YELLOW\1$NO_COLOUR/g" \
         -e "s/\(\[ERROR\].*\)/$RED\1$NO_COLOUR/g" \
         -e "s/\(\(BUILD \)\{0,1\}FAILURE.*\)/$RED\1$NO_COLOUR/g" \
-        -e "s/\(\(BUILD \)\{0,1\}SUCCESS.*\)/$LIGHT_GREEN\1$NO_COLOUR/g" \
-        -e "s/\(\[INFO\] [^-].*\)/$LIGHT_GRAY\1$NO_COLOUR/g" \
-        -e "s/\(\[INFO\] Building.*\)/$LIGHT_GREEN\1$NO_COLOUR/g" \
+        -e "s/\(\(BUILD \)\{0,1\}SUCCESS.*\)/$BOLD$GREEN\1$NO_COLOUR/g" \
+        -e "s/\(\[INFO\] [^-].*\)/$GRAY\1$NO_COLOUR/g" \
+        -e "s/\(\[INFO\] Building.*\)/$BOLD$GREEN\1$NO_COLOUR/g" \
         -e "s/\(\[INFO\] +.*\)/$CYAN\1$NO_COLOUR/g" \
         -e "s/\(\[INFO\] -.*\)/$WHITE\1$NO_COLOUR/g" \
-        -e "s/\(Feature:.*\)/$LIGHT_BLUE\1$NO_COLOUR/g"
+        -e "s/\(Feature:.*\)/$BOLD$BLUE\1$NO_COLOUR/g"
     return $PIPESTATUS
 }
 alias mvn=color_maven
@@ -106,13 +104,16 @@ function colors() {
   echo -e $PURPLE "purple" $NO_COLOUR
   echo -e $CYAN "cyan" $NO_COLOUR
   echo -e $WHITE "white" $NO_COLOUR
-  echo -e $LIGHT_RED "light red" $NO_COLOUR
-  echo -e $LIGHT_YELLOW "light yellow" $NO_COLOUR
-  echo -e $LIGHT_GRAY "light gray" $NO_COLOUR
-  echo -e $LIGHT_GREEN "light green" $NO_COLOUR
-  echo -e $LIGHT_BLUE "light blue" $NO_COLOUR
-  echo -e $LIGHT_CYAN "light cyan" $NO_COLOUR
-  echo -e $LIGHT_PURPLE "light purple" $NO_COLOUR
-  echo -e $REVERSE "reverse" $NO_COLOUR
+  echo -e $GRAY "gray" $NO_COLOUR
 
+  echo -e $BOLD$BLACK "bold black" $NO_COLOUR
+  echo -e $BOLD$RED  "bold red" $NO_COLOUR
+  echo -e $BOLD$GREEN "bold green" $NO_COLOUR
+  echo -e $BOLD$YELLOW "bold yellow" $NO_COLOUR
+  echo -e $BOLD$BLUE "bold blue" $NO_COLOUR
+  echo -e $BOLD$PURPLE "bold purple" $NO_COLOUR
+  echo -e $BOLD$CYAN "bold cyan" $NO_COLOUR
+  echo -e $BOLD$WHITE "bold white" $NO_COLOUR
+
+  echo -e $REVERSE "reverse" $NO_COLOUR
 }

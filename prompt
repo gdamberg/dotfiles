@@ -1,4 +1,4 @@
-
+EXIT=$?
 # hg prompt
 hg_prompt() {
 
@@ -73,8 +73,7 @@ git_prompt() {
     fi
 }
 
-
-PS1=' \[$LIGHT_BLUE\]\w \[$NO_COLOUR\]$(hg_prompt)$(git_prompt)\[$NO_COLOUR\] \[$LIGHT_BLUE\]»  \[$NO_COLOUR\]\[$CYAN\]'
+PS1=' \[$BLUE\]\[$BOLD\]\w \[$NO_COLOUR\]$(hg_prompt)$(git_prompt)\[$NO_COLOUR\] \[$BLUE\]\[$BOLD\]»  \[$NO_COLOUR\]\[$CYAN\]'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
