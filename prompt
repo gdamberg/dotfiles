@@ -62,7 +62,7 @@ git_prompt() {
         fi
         local gitstash=""
         if [[ $git == *"$"* ]]; then
-            gitstash="★"
+            gitstash="⚑"
         fi
 
         IFS=' |=|<|>' read -ra array <<< "$git"
