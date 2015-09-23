@@ -7,5 +7,7 @@ you can make local customizations by editing these files which will get sourced 
 + bash: ~/.bashrc_local
 + git: ~/.gitconfig_local
 + hg:  ~/.hgrc_local
-+ 
+
+*Note:* Automatic setup of synced Sublime Text 3 settings probably only works under Linux (Ubuntu)
+
 Released under The MIT License (MIT). See LICENSE

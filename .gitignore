@@ -1,3 +1,13 @@
 tools/hg-prompt/.hg/prompt
 *.pyc
 .hg
+tools/sublime.User/Package Control.last-run
+tools/sublime.User/Package Control.ca-list
+tools/sublime.User/Package Control.ca-bundle
+tools/sublime.User/Package Control.system-ca-bundle
+tools/sublime.User/Package Control.cache
+tools/sublime.User/Package Control.ca-certs
+tools/sublime.User/Package Control.merged-ca-bundle
+tools/sublime.User/Package Control.user-ca-bundle
+*.*~
+
