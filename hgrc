@@ -1,7 +1,16 @@
 [extensions]
 color =
 shelve=
+pager=
+purge=
 prompt = ~/.dotfiles/tools/hg-prompt/prompt.py
+
+[alias]
+llog = log -G --pager always --color always --template '\033[0;33m{node|short} \033[0m| {date|isodatesec} | \033[0;34m{author|person}: \033[0;33m{tags} {bookmarks} {branches} \033[0m {desc} \033[0m\n'
+slog = log --color always --limit 10 --template '\033[0;33m{node|short} \033[0m| {date|isodate} | \033[0;34m{author|person}: \033[0m{desc|strip|firstline}\033[0m\n'
+st = status
+giveup = !$HG revert --all --no-backup ; $HG purge
+
 
 # Allow local customizations
 %include ~/.hgrc_local
