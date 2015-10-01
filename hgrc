@@ -13,6 +13,9 @@ st = status
 giveup = !$HG revert --all --no-backup ; $HG purge
 amend = commit --amend
 untrack = rm -Af
+sta = status
+com = commit -m
+rev = revert
 
 [diff]
 git = True
