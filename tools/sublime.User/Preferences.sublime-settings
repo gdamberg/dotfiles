@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Base16 Color Schemes/base16-solarized.dark.tmTheme",
+	"color_scheme": "Packages/Base16 Color Schemes/base16-default.dark.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
