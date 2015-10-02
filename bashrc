@@ -1,6 +1,12 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 # Use the system config if it exists
 if [ -f /etc/bash.bashrc ]; then
-    . /etc/bash.bashrc  
+    . /etc/bash.bashrc
 fi
 
 # enable bash completion in interactive shells
