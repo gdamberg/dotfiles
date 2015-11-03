@@ -5,6 +5,11 @@ pager=
 purge=
 prompt = ~/.dotfiles/tools/hg-prompt/prompt.py
 progress =
+graphlog =
+hgext.fetch =
+hgext.extdiff =
+rebase =
+strip =
 
 [alias]
 llog = log -G --pager always --color always --template '\033[0;33m{node|short} \033[0m| {date|isodatesec} | \033[0;34m{author|person}: \033[0;33m{tags} {bookmarks} {branches} \033[0m {desc} \033[0m\n'
@@ -20,6 +25,18 @@ rev = revert
 [diff]
 git = True
 
+[extdiff]
+cmd.kdiff = /usr/bin/kdiff3
+cmd.mdiff = /usr/bin/meld
+
+[merge-tools]
+kdiff.args = $base $local $other -o $output
+mdiff.args = $base $local $other -o $output
+
+[ui]
+merge = meld
+editor = subl -w
+diff = meld
 
 # Allow local customizations
 %include ~/.hgrc_local

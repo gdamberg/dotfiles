@@ -33,3 +33,7 @@ alias c=clear
 # todo.txt
 alias todo='~/.dotfiles/tools/todo.txt-cli/todo.sh -d ~/.todo.cfg -a -P -t'
 alias td=todo
+
+# edit local bashrc and source it when done
+alias eenv="subl -w -n ~/.bashrc_local;source ~/.bashrc_local"
+alias ack=ack-grep
