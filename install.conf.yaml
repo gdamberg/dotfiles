@@ -9,6 +9,7 @@
     ~/.todo.cfg: todo.cfg
     ~/.gitconfig: gitconfig
     ~/.config/sublime-text-3/Packages/User: tools/sublime.User
+    ~/.ackrc: ackrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
