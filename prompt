@@ -1,9 +1,11 @@
 # hg prompt
 
-DIRTY="\001$RED\002"
+DIRTY="\001$PURPLE\002"
 READY="\001$YELLOW\002"
 CLEAN="\001$CYAN\002"
 RESET="\001$NO_COLOUR\002"
+PROMPT=""
+
 hg_prompt() {
 
     local hgrepo=$(hg prompt "{branch}{[{bookmark}]}" 2> /dev/null)
@@ -18,14 +20,14 @@ hg_prompt() {
 
         local hgremote=$(hg prompt "{i{incoming}}{o{outgoing}}" 2> /dev/null)
         case "$hgremote" in
-            "io" ) hgremote="⇅";;
-            "i" ) hgremote="↓";;
-            "o" ) hgremote="↑";;
+            "io" ) hgremote="⇅ ";;
+            "i" ) hgremote="↓ ";;
+            "o" ) hgremote="↑ ";;
             * ) hgremote="";;
         esac
 
 
-        printf "hg:${hgstatus}$hgrepo $hgremote${RESET}"
+        printf "${hgstatus}hg:$hgrepo $hgremote"
     fi
 
 }
@@ -54,38 +56,38 @@ git_prompt() {
 
         local gitremote=""
         if [[ $git == *">"* ]]; then
-           gitremote="↑"
+           gitremote="↑ "
         fi
 
         if [[ $git == *"<"* ]]; then
-            gitremote="↓"
+            gitremote="↓ "
         fi
 
         if [[ $git == *"<>"* ]]; then
-            gitremote="⇅"
+            gitremote="⇅ "
         fi
         local gitstash=""
         if [[ $git == *"$"* ]]; then
-            gitstash="⚑"
+            gitstash="⚑ "
         fi
 
         IFS=' |=|<|>' read -ra array <<< "$git"
         local gitbranch=${array[0]}
 
-         printf "git:${gitstatus}$gitbranch $gitremote$gitstash${RESET}"
+         printf "${gitstatus}git:$gitbranch $gitremote$gitstash"
 
     fi
 }
 
 exit_symbol() {
     if [ $? != 0 ]; then
-        EXIT="$DIRTY✗${RESET}"
+        EXIT="\001$RED\002✗ "
     else
-        EXIT="$CLEAN✓${RESET}"
+        EXIT="\001$CYAN\002✓ "
     fi
     printf "$EXIT"
 }
-PS1='$(exit_symbol) \[$BLUE\]\[$BOLD\]\w \[$NO_COLOUR\]$(hg_prompt)$(git_prompt) \[$CYAN\]\[$BOLD\]»  \[$NO_COLOUR\]\[$CYAN\]'
+PS1='\[$REVERSE\]$(exit_symbol)$(hg_prompt)$(git_prompt)\[$BLUE\]\[$BOLD\]\w \[$NO_COLOUR\]\[$BOLD\]\[$BLUE\]$PROMPT \[$NO_COLOUR\]\[$CYAN\]'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in

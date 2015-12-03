@@ -9,6 +9,16 @@ export CYAN="$(tput setaf 6)"
 export WHITE="$(tput setaf 7)$(tput bold)"
 export GRAY="$(tput setaf 7)"
 
+export BG_BLACK="$(tput setab 0)"
+export BG_RED="$(tput setab 1)"
+export BG_GREEN="$(tput setab 2)"
+export BG_YELLOW="$(tput setab 3)"
+export BG_BLUE="$(tput setab 4)"
+export BG_PURPLE="$(tput setab 5)"
+export BG_CYAN="$(tput setab 6)"
+export BG_WHITE="$(tput setab 7)$(tput bold)"
+export BG_GRAY="$(tput setab 7)"
+
 export NO_COLOUR="$(tput sgr0)"
 export REVERSE="$(tput rev)"
 export BOLD="$(tput bold)"
@@ -94,26 +104,26 @@ alias mvn=color_maven
 
 
 function colors() {
-  echo -e $BLACK "black" $NO_COLOUR
-  echo -e $RED  "red" $NO_COLOUR
-  echo -e $GREEN "green" $NO_COLOUR
-  echo -e $YELLOW "yellow" $NO_COLOUR
-  echo -e $BLUE "blue" $NO_COLOUR
-  echo -e $PURPLE "purple" $NO_COLOUR
-  echo -e $CYAN "cyan" $NO_COLOUR
-  echo -e $WHITE "white" $NO_COLOUR
-  echo -e $GRAY "gray" $NO_COLOUR
+  echo -e $BLACK           "black             " $REVERSE "reverse" $NO_COLOUR
+  echo -e $RED             "red               " $REVERSE "reverse" $NO_COLOUR
+  echo -e $GREEN           "green             " $REVERSE "reverse" $NO_COLOUR
+  echo -e $YELLOW          "yellow            " $REVERSE "reverse" $NO_COLOUR
+  echo -e $BLUE            "blue              " $REVERSE "reverse" $NO_COLOUR
+  echo -e $PURPLE          "purple            " $REVERSE "reverse" $NO_COLOUR
+  echo -e $CYAN            "cyan              " $REVERSE "reverse" $NO_COLOUR
+  echo -e $WHITE           "white             " $REVERSE "reverse" $NO_COLOUR
+  echo -e $GRAY            "gray              " $REVERSE "reverse" $NO_COLOUR
 
-  echo -e $BOLD$BLACK "bold black" $NO_COLOUR
-  echo -e $BOLD$RED  "bold red" $NO_COLOUR
-  echo -e $BOLD$GREEN "bold green" $NO_COLOUR
-  echo -e $BOLD$YELLOW "bold yellow" $NO_COLOUR
-  echo -e $BOLD$BLUE "bold blue" $NO_COLOUR
-  echo -e $BOLD$PURPLE "bold purple" $NO_COLOUR
-  echo -e $BOLD$CYAN "bold cyan" $NO_COLOUR
-  echo -e $BOLD$WHITE "bold white" $NO_COLOUR
+  echo -e $BOLD$BLACK      "bold black        " $REVERSE "reverse" $NO_COLOUR
+  echo -e $BOLD$RED        "bold red          " $REVERSE "reverse" $NO_COLOUR
+  echo -e $BOLD$GREEN      "bold green        " $REVERSE "reverse" $NO_COLOUR
+  echo -e $BOLD$YELLOW     "bold yellow       " $REVERSE "reverse" $NO_COLOUR
+  echo -e $BOLD$BLUE       "bold blue         " $REVERSE "reverse" $NO_COLOUR
+  echo -e $BOLD$PURPLE     "bold purple       " $REVERSE "reverse" $NO_COLOUR
+  echo -e $BOLD$CYAN       "bold cyan         " $REVERSE "reverse" $NO_COLOUR
+  echo -e $BOLD$WHITE      "bold white        " $REVERSE "reverse" $NO_COLOUR
 
-  echo -e $REVERSE "reverse" $NO_COLOUR
+  echo -e " default           " $REVERSE "reverse" $NO_COLOUR
 }
 
 
