@@ -1,6 +1,7 @@
 # Ignore idea files
 --ignore-dir=.idea
---ignore-file=match:.iml
+--ignore-file=match:\.iml$
+--ignore-dir=target
 
 # Use "less -r" as my pager
 --pager=less -r
