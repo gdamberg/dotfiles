@@ -123,6 +123,16 @@ function colors() {
   echo -e $BOLD$CYAN       "bold cyan         " $REVERSE "reverse" $NO_COLOUR
   echo -e $BOLD$WHITE      "bold white        " $REVERSE "reverse" $NO_COLOUR
 
+  echo -e $BG_BLACK  "black            "$NO_COLOUR
+  echo -e $BG_RED    "red              "$NO_COLOUR
+  echo -e $BG_GREEN  "green            "$NO_COLOUR
+  echo -e $BG_YELLOW "yellow           "$NO_COLOUR
+  echo -e $BG_BLUE   "blue             "$NO_COLOUR
+  echo -e $BG_PURPLE "purple           "$NO_COLOUR
+  echo -e $BG_CYAN   "cyan             "$NO_COLOUR
+  echo -e $BG_WHITE  "white            "$NO_COLOUR
+  echo -e $BG_GRAY   "gray             "$NO_COLOUR
+
   echo -e " default           " $REVERSE "reverse" $NO_COLOUR
 }
 
