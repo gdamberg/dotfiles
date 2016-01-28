@@ -5,3 +5,6 @@
 
 # Use "less -r" as my pager
 --pager=less -r
+
+#filetypes
+--type-set=pom:is:pom.xml
