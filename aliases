@@ -26,7 +26,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias rel='source ~/.bashrc'
 
 # maven stuff
-alias mci="mvn clean install"
+alias mci="mvn clean install -T 1C"
 
 alias f="nautilus ."
 alias t="terminator 2> /dev/null &"
