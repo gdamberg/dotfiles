@@ -89,14 +89,14 @@ function color_maven() {
 
     maven "$@" | sed \
         -e "s/Tests run: \([^,]*\), Failures: \([^,]*\), Errors: \([^,]*\), Skipped: \([^,]*\)/${GREEN}Tests run: \1$NO_COLOUR, Failures: $BOLD$RED\2$NO_COLOUR, Errors: $BOLD$YELLOW\3$NO_COLOUR, Skipped: $PURPLE\4$NO_COLOUR/g" \
-        -e "s/\(\[\{0,1\}WARN\(ING\)\{0,1\}\]\{0,1\}.*\)/$BOLD$YELLOW\1$NO_COLOUR/g" \
+        -e "s/\(\[\{0,1\}WARN\(ING\)\{0,1\}\]\{0,1\}.*\)/$PURPLE\1$NO_COLOUR/g" \
         -e "s/\(\[ERROR\].*\)/$RED\1$NO_COLOUR/g" \
         -e "s/\(\(BUILD \)\{0,1\}FAILURE.*\)/$RED\1$NO_COLOUR/g" \
-        -e "s/\(\(BUILD \)\{0,1\}SUCCESS.*\)/$BOLD$GREEN\1$NO_COLOUR/g" \
-        -e "s/\(\[INFO\] [^-].*\)/$GRAY\1$NO_COLOUR/g" \
-        -e "s/\(\[INFO\] Building.*\)/$BOLD$GREEN\1$NO_COLOUR/g" \
+        -e "s/\(\(BUILD \)\{0,1\}SUCCESS.*\)/$GREEN\1$NO_COLOUR/g" \
+        -e "s/\(\[INFO\] [^-].*\)/\1$NO_COLOUR/g" \
+        -e "s/\(\[INFO\] Building.*\)/$GREEN\1$NO_COLOUR/g" \
         -e "s/\(\[INFO\] +.*\)/$CYAN\1$NO_COLOUR/g" \
-        -e "s/\(\[INFO\] -.*\)/$WHITE\1$NO_COLOUR/g" \
+        -e "s/\(\[INFO\] -.*\)/$BLUE\1$NO_COLOUR/g" \
         -e "s/\(Feature:.*\)/$BOLD$BLUE\1$NO_COLOUR/g"
     return $PIPESTATUS
 }
@@ -157,4 +157,15 @@ explain () {
     echo "explain                  interactive mode."
     echo "explain 'cmd -o | ...'   one quoted command to explain it."
   fi
+}
+
+ctail() {
+  tail -f "$@" | \
+  awk -Winteractive '{\
+  if ($0 ~ /INFO/) print "\033[32m" $0; \
+  else if ($0 ~ /DEBUG/) print "\033[37m" $0; \
+  else if ($0 ~ /SEVERE|ERROR/) print "\033[31m" $0; \
+  else if ($0 ~ /WARN/) print "\033[33m" $0; \
+  else print $0; \
+  }'
 }
