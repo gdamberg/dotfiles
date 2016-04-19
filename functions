@@ -88,7 +88,7 @@ alias maven="command mvn"
 function color_maven() {
 
     maven "$@" | sed \
-        -e "s/Tests run: \([^,]*\), Failures: \([^,]*\), Errors: \([^,]*\), Skipped: \([^,]*\)/${GREEN}Tests run: \1$NO_COLOUR, Failures: $BOLD$RED\2$NO_COLOUR, Errors: $BOLD$YELLOW\3$NO_COLOUR, Skipped: $PURPLE\4$NO_COLOUR/g" \
+        -e "s/Tests run: \([^,]*\), Failures: \([^,]*\), Errors: \([^,]*\), Skipped: \([^,]*\)/${GREEN}Tests run: \1$NO_COLOUR, Failures: $BOLD$RED\2$NO_COLOUR, Errors: $RED\3$NO_COLOUR, Skipped: $PURPLE\4$NO_COLOUR/g" \
         -e "s/\(\[\{0,1\}WARN\(ING\)\{0,1\}\]\{0,1\}.*\)/$PURPLE\1$NO_COLOUR/g" \
         -e "s/\(\[ERROR\].*\)/$RED\1$NO_COLOUR/g" \
         -e "s/\(\(BUILD \)\{0,1\}FAILURE.*\)/$RED\1$NO_COLOUR/g" \
