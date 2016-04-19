@@ -1,5 +1,6 @@
 {
-	"color_scheme": "Packages/Base16 Color Schemes/base16-tomorrow.dark.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
+	"dictionary": "Packages/Language - English/en_US.dic",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
