@@ -12,6 +12,7 @@
     ~/.ackrc: ackrc
     ~/.config/terminator/plugins/LayoutManager.py: tools/TerminatorPlugins/plugins/LayoutManager.py
     ~/.config/terminator/plugins/TerminalExporter.py: tools/TerminatorPlugins/plugins/TerminalExporter.py
+    ~/.config/terminator/config: terminator.config
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
