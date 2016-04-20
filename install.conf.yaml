@@ -10,6 +10,8 @@
     ~/.gitconfig: gitconfig
     ~/.config/sublime-text-3/Packages/User: tools/sublime.User
     ~/.ackrc: ackrc
+    ~/.config/terminator/plugins/LayoutManager.py: tools/TerminatorPlugins/plugins/LayoutManager.py
+    ~/.config/terminator/plugins/TerminalExporter.py: tools/TerminatorPlugins/plugins/TerminalExporter.py
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
