@@ -21,6 +21,7 @@ untrack = rm -Af
 sta = status
 com = commit -m
 rev = revert
+info = status --change
 
 [diff]
 git = True
