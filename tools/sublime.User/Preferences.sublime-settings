@@ -12,7 +12,7 @@
 	"font_face": "Source Code Pro",
 	"font_options":
 	[
-		"subpixel_antialias"
+		"gray_antialias"
 	],
 	"font_size": 14,
 	"highlight_line": true,
