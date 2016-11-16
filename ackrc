@@ -11,3 +11,4 @@
 
 #filetypes
 --type-set=pom:is:pom.xml
+--type-set=cfg:ext:cfg,properties
