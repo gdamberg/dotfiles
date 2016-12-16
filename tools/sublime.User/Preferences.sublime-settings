@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
+	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Ocean.tmTheme",
 	"dictionary": "Packages/Language - English/en_US.dic",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
@@ -25,7 +25,7 @@
 	"shift_tab_unindent": true,
 	"soda_classic_tabs": true,
 	"soda_folder_icons": false,
-	"theme": "Soda Light.sublime-theme",
+	"theme": "Boxy Solarized Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
