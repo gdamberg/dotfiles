@@ -6,9 +6,11 @@
     ~/.inputrc: inputrc
     ~/.hgrc: hgrc
     ~/.gitconfig: gitconfig
-    ~/.config/sublime-text-3/Packages/User: tools/sublime.User
+    ~/.config/sublime-text-3/Packages/User: 
+       create: true
+       path: config/sublime.User
     ~/.ackrc: ackrc
-    ~/.atom: atom
+    ~/.atom: config/atom
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
