@@ -55,9 +55,3 @@ done;
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# ADD todo.txt to autocomplete
-source ~/.dotfiles/tools/todo.txt-cli/todo_completion
-complete -F _todo td
-complete -F _todo todo
-
