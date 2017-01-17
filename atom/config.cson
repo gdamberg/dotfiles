@@ -1,0 +1,8 @@
+"*":
+  core:
+    telemetryConsent: "no"
+  editor:
+    fontFamily: "Source Code Pro"
+    fontSize: 20
+  "exception-reporting":
+    userId: "83236909-f0f4-bf2b-ffec-4d383ede9580"

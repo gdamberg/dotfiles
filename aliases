@@ -35,5 +35,5 @@ alias t="terminator 2> /dev/null &"
 alias c=clear
 
 # edit local bashrc and source it when done
-alias eenv="subl -w -n ~/.bashrc_local;source ~/.bashrc_local"
+alias eenv="$EDITOR -n ~/.bashrc_local;source ~/.bashrc_local"
 alias ack=ack-grep
