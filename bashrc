@@ -18,6 +18,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# source my 'dotfiles'
 DOTFILE_HOME=~/.dotfiles/
 DOT_FILES=(functions aliases exports prompt)
 
@@ -55,3 +56,7 @@ done;
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi    
