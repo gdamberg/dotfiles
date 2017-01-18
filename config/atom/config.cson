@@ -6,3 +6,10 @@
     fontSize: 20
   "exception-reporting":
     userId: "83236909-f0f4-bf2b-ffec-4d383ede9580"
+  minimap:
+    plugins:
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  "one-dark-ui": {}
