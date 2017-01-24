@@ -2,12 +2,10 @@
 
 DIRTY="\001$RED\002"
 READY="\001$YELLOW\002"
-CLEAN="\001$BLUE\002"
+CLEAN="\001$CYAN\002"
 RESET="\001$NO_COLOUR\002"
 COLOR=$BLUE$BOLD
 PROMPT="⇒"
-
-#
 
 hg_prompt() {
 
@@ -84,15 +82,13 @@ git_prompt() {
 
 exit_symbol() {
     if [ $? != 0 ]; then
-        EXIT="\001$RED\002  "$PROMPT
-   else
-        EXIT="\001$GREEN\002$PROMPT "
+        EXIT="$DIRTY✗ "
+    else
+        EXIT="$CLEAN✓ "
     fi
     printf "$EXIT"
 }
-#PS1='\[$REVERSE\]$(exit_symbol)$(hg_prompt)$(git_prompt)\[$COLOR\]\w \[$NO_COLOUR\]\[$COLOR\]$PROMPT \[$NO_COLOUR\]'
-
-PS1='\[$COLOR\] \w $(hg_prompt)$(git_prompt)\[$NO_COLOUR\]\[$COLOR\]$PROMPT  \[$NO_COLOUR\]'
+PS1='$(exit_symbol)$(hg_prompt)$(git_prompt)\[$COLOR\]\w \[$NO_COLOUR\]\[$BOLD\]\[$GREEN\]$PROMPT \[$NO_COLOUR\]'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in

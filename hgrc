@@ -36,7 +36,7 @@ mdiff.args = $base $local $other -o $output
 
 [ui]
 merge = meld
-editor = subl -w
+editor = atom
 diff = meld
 
 # Allow local customizations
