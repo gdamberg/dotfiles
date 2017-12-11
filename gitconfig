@@ -20,7 +20,6 @@
     last = show -w
     st = status
 
-
-# Allow local customizations in the .gitconfig_local file
-[include]
-	path = ~/.gitconfig_local
+[user]
+	email = gdamberg@outlook.com
+	name = Göran Damberg
