@@ -19,23 +19,21 @@ if ! shopt -oq posix; then
 fi
 
 # source my 'dotfiles'
-DOTFILE_HOME=~/.dotfiles/
-DOT_FILES=(functions aliases exports prompt)
+if [ -f "$HOME/.bashrc.dotfiles" ]; then
+  source "$HOME/.bashrc.dotfiles"
 
-for file in "${DOT_FILES[@]}"
-do
-  if [ -f "$DOTFILE_HOME$file" ]; then
-    source "$DOTFILE_HOME$file"
-  fi
-done
-
-unset DOT_FILES
-unset DOTFILE_HOME
-unset file
+  DOT_FILES=(functions aliases exports prompt)
+  for file in "${DOT_FILES[@]}"
+  do
+    if [ -f "$DOTFILES_HOME/$file" ]; then
+      source "$DOTFILES_HOME/$file"
+    fi
+  done
+fi
 
 # for local overrides and system specific stuff
-if [ -f ~/.bashrc_local ]; then
-    source ~/.bashrc_local
+if [ -f ~/.bashrc.local ]; then
+    source ~/.bashrc.local
 fi
 
 # append to the history file, don't overwrite it
@@ -59,4 +57,4 @@ done;
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-fi    
+fi
